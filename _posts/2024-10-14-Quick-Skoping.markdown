@@ -3,7 +3,7 @@ layout: post
 title:  "Quick-Skoping through Netskope Tenants CVE-2024-7401"
 date:   2024-10-14
 categories: Infosec Walkthrough
-tags: [GOAD, ESXi, Homelab]
+tags: [NetSkope, Hacking, NetSec]
 author: tjnull and DISREL
 
 ---
