@@ -2,7 +2,6 @@
 layout: page
 title: Authors
 permalink: /authors/
-tags: [Page]
 ---
 
 # TJ Null:
