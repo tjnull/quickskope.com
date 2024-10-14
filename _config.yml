@@ -9,7 +9,7 @@ avatar: assets/img/triangle.png                         # Empty for no avatar in
 favicon: assets/favicon.ico                             # Icon displayed in the tab
 
 # Header and footer text
-header_text: Quick-Skoping through Netskope Tenants CVE-2024-7401  # Change Blog header text
+header_text: QuickSkope - Vulnerability in Netskope's Secure Web Gateway (SWG) # Change Blog header text
 header_feature_image: #assets/img/header/triangular.jpeg
 header_feature_image_responsive: true
 footer_text: >
@@ -44,7 +44,7 @@ paginate_path: "/blog/page:num"
 # PORTFOLIO
 collections:
   portfolio:
-    output: true
+    output: false
     permalink: /:collection/:name
 
 # BUILD SETTINGS

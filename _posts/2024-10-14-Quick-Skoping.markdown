@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Quick-Skoping through Netskope Tenants CVE-2024-7401"
+title:  "Quick-Skoping through Netskope SWG Tenants - CVE-2024-7401"
 date:   2024-10-14
-categories: Infosec Walkthrough
-tags: [NetSkope, Hacking, NetSec]
+categories: Vulnerability Research
+tags: [NetSkope, SWG, Hacking, NetSec, Vulnerability, POC, PTC]
 author: tjnull and DISREL
 
 ---
