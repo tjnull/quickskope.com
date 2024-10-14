@@ -38,6 +38,9 @@ Netskope Client is an application designed to route traffic from end-user device
 
 The Netskope Cloud Client requires visibility to a set of outbound domains over HTTPS (tcp/443). Once the client is installed and the account configuration file is in place, the Netskope Client will connect using the custom subdomain from the client endpoint.
 
+Reference: 
+
+![Netskope Cloud Configuration](https://netskope-techdocs.github.io/doc-stage/en/image/uuid-2850c7db-bc9c-f3ee-424b-77ce83c05bf3.png)
 
 Depending on the region you are in, the client will be connecting to one of the following domains:
 
@@ -46,8 +49,6 @@ Netskope Cloud:
 - United States Datacenter: `https://[TENANT].goskope.com/`
 - European Union Datacenter: `https://[TENANT].eu.goskope.com/`
 - Frankfurt Datacenter: `https://[TENANT].de.goskope.com/`
-
-Reference: ![Netskope Cloud Configuration](https://netskope-techdocs.github.io/doc-stage/en/image/uuid-2850c7db-bc9c-f3ee-424b-77ce83c05bf3.png)
 
 ## Scraping for Netskope Client Domains
 
