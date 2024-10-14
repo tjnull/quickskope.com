@@ -330,7 +330,7 @@ Delete all the files in the following directory and copy nsbranding.json into it
 
 The configuration file will be saved in the same path where you executed the script. 
 
-
+Here is a link to check out Quick Scope: [https://github.com/tjnull/QuickSkope](https://github.com/tjnull/QuickSkope)
 
 ## Conclusion
 
