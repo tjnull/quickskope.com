@@ -26,7 +26,7 @@ Netskope is a cloud security platform that provides organizations with visibilit
 
 Recently, a security vulnerability was discovered in Netskope's product that could allow an unauthenticated threat actor to obtain an account's configuration file. By manipulating and importing this file into any Netskope client, the attacker could impersonate the user associated with that account. Depending on the user's level of access, this could result in a severe security breach, potentially granting the attacker unfiltered access to an organization's entire infrastructure.
 
-With the release of this security vulnerability, DISREL and I took some time to investigate this vulnerability to understand the implications. This led us to write a proof of concept that automates the entire process of obtaining a compromised configuration file. The original credit goes to Sander di Wit for identifying the vulnerability and responsibly disclosing it to Netskope. At the time of writing this article, we wanted to give corporations that use Netskope the necessary time needed to remediate the gap.
+With the release of this security vulnerability, [DISREL](https://x.com/0xDISREL) and I took some time to investigate this vulnerability to understand the implications. This led us to write a proof of concept that automates the entire process of obtaining a compromised configuration file. The original credit goes to Sander di Wit for identifying the vulnerability and responsibly disclosing it to Netskope. At the time of writing this article, we wanted to give corporations that use Netskope the necessary time needed to remediate the gap.
 
 For more information about the workaround and remediation, you can learn more from the security advisory posted by Netskope:
 
