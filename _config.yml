@@ -1,15 +1,15 @@
 # SITE CONFIGURATION
 baseurl: 
-url: "https://quickskope.github.io"
+url: "https://quickskope.com"
 
 # THEME-SPECIFIC CONFIGURATION
 title: QuickSkope                         # site's title
-description: "This is the main page for QuickSkope"      # used by search engines
+description: "QuickSkope - Vulnerability in Netskope's Secure Web Gateway (SWG)"      # used by search engines
 avatar: assets/img/triangle.png                         # Empty for no avatar in navbar
 favicon: assets/favicon.ico                             # Icon displayed in the tab
 
 # Header and footer text
-header_text: QuickSkope - Vulnerability in Netskope's Secure Web Gateway (SWG) # Change Blog header text
+header_text: "QuickSkope - Vulnerability in Netskope's Secure Web Gateway (SWG)" # Change Blog header text
 header_feature_image: #assets/img/header/triangular.jpeg
 header_feature_image_responsive: true
 footer_text: >
