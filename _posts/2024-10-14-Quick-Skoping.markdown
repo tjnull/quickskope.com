@@ -158,8 +158,10 @@ tjnull@kali:$ curl -s https://nsauth-<tenant-name>.goskope.com/nsauth/client/aut
 
 Looking at the output we can identify the organization key in the XML data by looking for the "AssertionConsumerServiceURL" or the "saml:Issuer"
 
+```
 saml:Issuer: https://nsauth-<tenant-name>.goskope.com/<ORGANIZATION-KEY>
 AssertionConsumerServiceURL="https://nsauth-<tenant-name>.goskope.com/nsauth/saml2/http-post/<ORGANIZATION-KEY>/acs">
+```
 
 Note: Depending on the tenant you are reviewing the saml:Issuer ORG Key may be different from the AssertionConsumerServiceURL. If the ORG key in the Issuer and service URL are different, use the AssertionConsumerServiceURL for the next steps. 
 
