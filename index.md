@@ -347,6 +347,7 @@ NetSkope Documentation:
 - Netskope Client Configuration: [https://docs.netskope.com/en/netskope-client-network-configuration/](https://docs.netskope.com/en/netskope-client-network-configuration/)
 - Netskope Client Command Refence: [https://docs.netskope.com/en/netskope-client-command-reference/](https://docs.netskope.com/en/netskope-client-command-reference/)
 - Netskope Secure Enrollment: [https://docs.netskope.com/en/secure-enrollment/](https://docs.netskope.com/en/secure-enrollment/)
+- Netskope Integration Options: [https://docs.netskope.com/en/integrations-439794](https://docs.netskope.com/en/integrations-439794)
 
 CVE References: 
 - [https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-7401](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-7401)
