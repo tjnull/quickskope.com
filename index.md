@@ -21,7 +21,7 @@ author: tjnull and DISREL
 
 ## Introduction
 
-Netskope is a cloud security platform that provides organizations with visibility and control over cloud applications, data, and internet traffic. Many corporations use Netskope to enhance security, ensure compliance, and manage risks associated with cloud adoption and remote work.
+Netskope is a cloud security company that provides a platform for securing cloud, web, and private apps. It offers a range of services including a cloud access security broker (CASB), secure web gateway (SWG), and zero trust network access (ZTNA), all delivered through a single cloud-native platform. 
 
 Last year, a security vulnerability was discovered in Netskope's product that could allow an unauthenticated threat actor to obtain an account's configuration file. By manipulating and importing this file into any Netskope client, the attacker could impersonate the user associated with that account. Depending on the user's level of access, this could result in a severe security breach, potentially granting the attacker unfiltered access to an organization's entire infrastructure.
 
@@ -33,7 +33,7 @@ For more information about the workaround and remediation, you can learn more fr
 
 ## Understanding How Netskope Client Works
 
-Netskope Client is an application designed to route traffic from end-user devices to the Netskope Cloud. The Client employs a Forward Proxy Steering mechanism, where it establishes an SSL tunnel from the end device to the Netskope forward proxy in the Cloud. Once the tunnel is established, the client will pass the user's traffic into the Netskope Cloud. Through the Netskope Cloud Interface, the administrator can adjust the configuration to enforce policies that direct the traffic of specific domains or applications to the Netskope Cloud.
+The Netskope agent is a lightweight endpoint that routes user traffic through an organizations Netskope Security Cloud Platform. The Client employs a Forward Proxy Steering mechanism, where it establishes an SSL tunnel from the end device to the Netskope forward proxy in the Cloud. Once the tunnel is established, the client will pass the user's traffic into the Netskope Cloud. Through the Netskope Cloud Interface, the administrator can adjust the configuration to enforce policies that direct the traffic of specific domains or applications to the Netskope Cloud. Another feature an administrator do is integrate various Single Sign-On (SSO) services, such as Microsoft Entra ID (formerly Azure AD), AWS, Okta or ServiceNow to streamline user authentication process. With this feature a user could be automatically signed-in to their Microsoft Entra accounts, AWS account, Okta account, etc by using the NetSkope agent.
 
 The Netskope Cloud Client requires visibility to a set of outbound domains over HTTPS (tcp/443). Once the client is installed and the account configuration file is in place, the Netskope Client will connect using the custom subdomain from the client endpoint.
 
@@ -335,7 +335,7 @@ Here is a link to check out Quick Scope: [https://github.com/tjnull/QuickSkope](
 
 ## Conclusion
 
-In conclusion, while Netskope offers crucial cloud security and data protection for organizations, a recently identified vulnerability presents a significant risk. This flaw could allow an unauthenticated attacker to obtain a user's configuration file and potentially impersonate them, which might provide access to an organization's entire infrastructure. While DISREL and I have investigated this issue and developed a proof of concept to automate the process of obtaining a compromised configuration file, it's important to note that the full security implications of this vulnerability are not fully visible without performing more intrusive analysis, which is beyond the scope of our research. Addressing this vulnerability promptly is crucial to mitigate potential security breaches and ensure comprehensive protection.
+In conclusion, while Netskope offers crucial cloud security services and data protection products for organizations, this vulnerability presents a significant risk. This flaw can allow an attacker to obtain a valid user's configuration file and potentially impersonate them, which might provide access to an organization's entire infrastructure. While DISREL and I have investigated this issue and developed a proof of concept to automate the process of obtaining a compromised configuration file, it's important to note that the full security implications of this vulnerability are not fully visible without performing more intrusive analysis, which is beyond the scope of our research. Addressing this vulnerability promptly is crucial to mitigate potential security breaches and ensure comprehensive protection.
 
 ## References
 
