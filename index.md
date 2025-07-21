@@ -253,10 +253,10 @@ A new connection will be established, with the agent linking to the tenant. This
 
 QuickSkope is a proof of concept (POC) based on python that is designed to streamline the process of obtaining a user's configuration file. By providing the user's tenant name and a valid email address, the script automates the retrieval of the configuration file. When successful, QuickSkope will download the configuration file for the specified user and save it as `nsbranding.json`.
 
-Using Quick-Skope is very easy:
+Using QuickSkope is very easy:
 
 ```bash
-tjnull@kali:~/Documents/scripts/quick-skope$ python quick-scope.py
+tjnull@kali:~/Documents/scripts/quickskope$ python quickskope.py
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⠟⠉⠉⠻⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -314,16 +314,16 @@ no-banner                           - Suppresses the ASCII banner.
 To validate if there is an actual tenant we can run the following options:
 
 ```bash
-tjnull@kali:~/Documents/scripts/quick-skope$ python quick-scope.py no-banner validate <tenant-name>
+tjnull@kali:~/Documents/scripts/quickskope$ python quickskope.py no-banner validate <tenant-name>
 
 Tenant "TENANT NAME" valid. OrgKey = "Organization Key"
 
-tjnull@kali:~/Documents/scripts/quick-skope$
+tjnull@kali:~/Documents/scripts/quickskope$
 ```
 If the script runs successfully, it will display the organization's key for the specified tenant. To obtain a user configuration file we can run the following options:
 
 ```bash
-tjnull@kali:~/Documents/scripts/quick-skope$ python quick-scope.py no-banner config <tenant_name> <email>
+tjnull@kali:~/Documents/scripts/quickskope$ python quickskope.py no-banner config <tenant_name> <email>
 Client configuration file obtained successfully! Saving file as nsbranding.json
 
 Delete all the files in the following directory and copy nsbranding.json into it.
@@ -333,7 +333,7 @@ Delete all the files in the following directory and copy nsbranding.json into it
 
 The configuration file will be saved in the same path where you executed the script. 
 
-Here is a link to check out Quick Scope: [https://github.com/tjnull/QuickSkope](https://github.com/tjnull/QuickSkope)
+Here is a link to check out QuickSkope: [https://github.com/tjnull/QuickSkope](https://github.com/tjnull/QuickSkope)
 
 ## Conclusion
 
