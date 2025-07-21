@@ -1,0 +1,11 @@
+services:
+  jekyll:
+    platform: linux/amd64
+    image: jekyll/jekyll:latest
+    command: sh -c "bundle install && bundle exec jekyll serve --trace --verbose --host 0.0.0.0"
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/srv/jekyll
+    environment:
+      - JEKYLL_ENV=development

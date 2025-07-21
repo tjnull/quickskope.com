@@ -1,9 +1,4 @@
 # To add links to the navigation bar.
-- writeup:
-  title: Write-Up
-  url: https://quickskope.com
-  hide: false
-  position: 1
 - poc:
   title: Proof of Concept (POC)
   url: https://github.com/tjnull/QuickSkope
