@@ -5,7 +5,6 @@ date:   2024-10-14
 categories: Vulnerability Research
 tags: [NetSkope, SWG, Hacking, NetSec, Vulnerability, POC, PTC]
 author: tjnull and DISREL
-
 ---
 
 ## Table of Contents
